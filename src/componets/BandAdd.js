@@ -1,18 +1,16 @@
-import React, { useState } from 'react';
-import { useSocket } from '../hooks/useSocket';
+import React, { useContext, useState } from 'react';
+import { SocketContext } from '../context/SocketContext'
 
-export const BandAdd = ({ crearBanda }) => {
+export const BandAdd = () => {
 
     const [ valor, setValor ] = useState('');
-    const {socket}= useSocket ('http://localhost:8080');
-
+    const { socket } = useContext( SocketContext );
 
     const onSubmit = (ev) => {
         ev.preventDefault();
 
         if ( valor.trim().length > 0 ) {
             socket.emit( 'crear-banda', { nombre: valor });
-
             setValor('');
         }
 

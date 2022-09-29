@@ -1,11 +1,13 @@
-import React from 'react'
-import { SocketProvider } from './contex/SocketContext'
+import React from 'react';
+import { SocketProvider } from './context/SocketContext';
 
-import App from './App'
+import HomePage from './pages/Homepage';
 
 export const BandNameApp = () => {
   return (
-    <socketProvider> < App /> </socketProvider>
+     <SocketProvider>
+          <HomePage />
+    </SocketProvider>
   )
 }
 
